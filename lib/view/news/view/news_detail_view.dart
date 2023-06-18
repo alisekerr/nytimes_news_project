@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nytimes_news_project/core/constants/string/string_constants.dart';
+import 'package:nytimes_news_project/core/extension/context_extension.dart';
 import 'package:nytimes_news_project/core/widgets/general_body.dart';
 import 'package:nytimes_news_project/core/widgets/general_button.dart';
 import 'package:nytimes_news_project/core/widgets/image_network_widget.dart';
@@ -23,18 +24,17 @@ class NewsDetailView extends StatelessWidget {
             ModalRoute.of(context)?.settings.arguments as Result?;
       },
       onPageBuilder: (context, value) {
-        var sizer = MediaQuery.of(context).size;
         return GeneralBody(
           title: StringConstants.NY_TIMES,
           widget: Column(
             children: [
-              _buildNewsImage(value, value.resultItem, sizer),
+              _buildNewsImage(value, value.resultItem, context),
               _buildNewsDate(context, value.resultItem),
               _buildSpacer(),
               _buildNewsTitle(value.resultItem, context),
               _buildSpacer(),
               _buildNewsResultAbstract(value.resultItem, context),
-              _buildBackButton(sizer)
+              _buildBackButton(context)
             ],
           ),
         );
@@ -42,12 +42,12 @@ class NewsDetailView extends StatelessWidget {
     );
   }
 
-  GeneralButton _buildBackButton(Size sizer) {
+  GeneralButton _buildBackButton(BuildContext context) {
     return GeneralButton(
         onPress: () => NavigationService.instance
             .navigateToPageClear(path: NavigationConstants.LIST),
-        height: sizer.height * 0.05,
-        width: sizer.width * 0.8);
+        height: context.dynamicHeight(0.05),
+        width: context.dynamicWidth(0.8));
   }
 
   Expanded _buildNewsResultAbstract(Result? result, BuildContext context) {
@@ -91,13 +91,13 @@ class NewsDetailView extends StatelessWidget {
   }
 
   Expanded _buildNewsImage(
-      NewsListViewModel value, Result? result, Size sizer) {
+      NewsListViewModel value, Result? result, BuildContext context) {
     return Expanded(
       flex: 80,
       child: ImageNetworkWidget(
         imageUrl: value.imageParse(imageData: result?.media, index: 2),
-        width: sizer.width,
-        height: sizer.height * 0.2,
+        width: context.width,
+        height: context.dynamicHeight(0.2),
         fit: BoxFit.cover,
       ),
     );

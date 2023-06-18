@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nytimes_news_project/core/constants/string/string_constants.dart';
 
+import '../extension/context_extension.dart';
 import 'main_appbar_widget.dart';
 
 class GeneralBody extends StatelessWidget {
@@ -14,7 +15,7 @@ class GeneralBody extends StatelessWidget {
       appBar: MainAppbarWidget(title: title ?? StringConstants.DATA_NOT_FOUND),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: context.paddingLow,
           child: widget,
         ),
       ),

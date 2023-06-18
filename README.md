@@ -1,31 +1,15 @@
 # Project Libraries
 - State Management
-  - mobx => https://pub.dev/packages/mobx
-  - flutter_mobx => https://pub.dev/packages/flutter_mobx
+
   - provider => https://pub.dev/packages/provider
-  - mobx_codegen => https://pub.dev/packages/mobx_codegen
-  - build_runner => https://pub.dev/packages/build_runner
   
-- Localization
-  - easy_localization => https://pub.dev/packages/easy_localization 
-
-- Cache
-  - shared_preferences => https://pub.dev/packages/shared_preferences
-
 - Network 
   - dio => https://pub.dev/packages/dio
-
-- Serializable
-  - json_serializable => https://pub.dev/packages/json_serializable
+  - pretty_dio_logger => https://pub.dev/packages/pretty_dio_logger
   
-- UI
-  - sizer => https://pub.dev/packages/sizer
-  - modal_progress_hud_nsn => https://pub.dev/packages/modal_progress_hud_nsn
-  
-- Firebase
-  - firebase_core => https://pub.dev/packages/firebase_core
-  - firebase_auth => https://pub.dev/packages/firebase_auth
-  - cloud_firestore => https://pub.dev/packages/cloud_firestore
+- Test
+  - http_mock_adapter => https://pub.dev/packages/http_mock_adapter
+  - integration_test:
 
 # Project Layers
 - Base 
@@ -44,11 +28,7 @@
   - context_extension => the place where values such as width, height, padding, and duration are kept within the application.
   
 - Init
-  - The place where important controls such as cache, lang, navigation, network, notifier, and theme are managed for a mobile application.
-  
-  - cache => contains locale manager for managing application cache in this section.
-  
-  - lang => contains language manager for localization. For localization, the languages that will be localized should be put into folders such as en-US.json, tr-TR.json under assets/lang. After any changes made in these folders, the command "flutter pub run easy_localization:generate -O lib/core/init/lang -f keys -o locale_keys.g.dart -S assets/lang" should be written in the terminal.
+  - The place where important controls such as  navigation, network, notifier, and theme are managed for a mobile application.
   
   - navigation => the place where navigation service and navigation routes are provided.
   
@@ -67,17 +47,13 @@
 - In this section, we see how we can use our application's views and viewModels in an integrated way with the code we wrote in the base layer.
   
    # ViewModel
-     - When we start to make the ViewModel section, we first start to generate a viewModel code using the mobx snippet. (*Note that build_runner_watch is active during this process.*)
-     
-     - After completing this process, mobx_codegen starts writing the generated codes to the viewModel.g.dart folder on our behalf.
-     
-     - While developing our ViewModel, we use the base_view_model we made in the base section. For this process, we add the class with Store, BaseViewModel structure to the class to derive it from the BaseViewModel class.
+     - We create base_model and base_view_model to use in our View-Model and use them in our view-models and views.
      
      - After adding these structures, we integrate our setContext() and init() functions from our base_view_model."
      
-  ![view-model-sample](https://user-images.githubusercontent.com/92018394/218278150-b6426b43-3f7b-4bc6-b82a-15a0da24c718.png)
+    ![SCR-20230619-2ja](https://github.com/alisekerr/nytimes_news_project/assets/77177463/b1b80ebd-5e69-4e77-95b4-56a6b4085d98)
 
-   
+
    # View
      - When starting to fill the View section, we first utilize the view_base we developed in the base section.
      - To draw our page, we add our BaseView to the return section, but this BaseView must be derived from the viewModel (e.g.: BaseView<LoginViewModel>())
@@ -87,12 +63,18 @@
      - onModelReady => We control the context interaction of the model we gave.
      - onPageBuilder => This is the section where we start drawing our page.
   
-  ![view_template](https://user-images.githubusercontent.com/92018394/218277912-a1b5a500-c7c6-4866-b4fe-0c3838792bd6.png )
+  ![SCR-20230619-2ls](https://github.com/alisekerr/nytimes_news_project/assets/77177463/774c01ea-093a-4c37-9be3-7f6902f19eb3)
   
-  # Publish to Android
+  # Test
+    - There are two different test cases in the application.
+    - 
+    - For integration test, you can perform the UI test of the application with the run function from the file in the integration_test folder :
+      ![SCR-20230619-2r3](https://github.com/alisekerr/nytimes_news_project/assets/77177463/53ae891b-38d6-4b3f-b5ae-a9826daec20c)
+      
+    - For the service test of the application, you can use the news_service_test file in the test folder and perform the service test of the application with the run function :
+      ![SCR-20230619-2um](https://github.com/alisekerr/nytimes_news_project/assets/77177463/30161d9d-040d-487b-9aaa-91c4b76b4c36)
+      
+    - Note: For the response section written in the service test, the values ​​returned at the time the test was written are given. Likewise, for testing the values ​​from the parameters, the "title" parameter entered as an example, and the "title" values ​​from the service at that moment are given. If testing is to be done, it is recommended to regulate the values.
+      ![SCR-20230619-2ye](https://github.com/alisekerr/nytimes_news_project/assets/77177463/2f140644-a077-44e9-b189-400e0010e6fd)
+      ![SCR-20230619-2yv](https://github.com/alisekerr/nytimes_news_project/assets/77177463/f11f9f4e-660d-4e62-8bda-3490f82d480a)
 
-
-  # Credits
-     - Thanks to HardwareAndro YouTube Channel => https://www.youtube.com/@HardwareAndro
-     - Thanks to Veli Bacık who provides these trainings for contributing to my learning on these topics. => https://github.com/VB10
-         https://github.com/furkanagess
