@@ -15,6 +15,7 @@ class NewsListViewModel extends ChangeNotifier with BaseViewModel {
   final _provider = NewsService();
 
   NewsModel newsModel = NewsModel();
+  Result? resultItem = Result();
   List<Result>? sortedNews;
   ValueNotifier<LoadStatus> status = ValueNotifier(LoadStatus.loading);
 
@@ -38,5 +39,15 @@ class NewsListViewModel extends ChangeNotifier with BaseViewModel {
         .toList();
     sortedNews?.sort((a, b) => DateTime.parse(b.publishedDate!.toString())
         .compareTo(DateTime.parse(a.publishedDate!.toString())));
+  }
+
+  String imageParse({required List<Media>? imageData, required int index}) {
+    String mediaUrl;
+    if (imageData?.isNotEmpty == true) {
+      mediaUrl = imageData?[0].mediaMetadata?[index].url ?? "";
+    } else {
+      mediaUrl = "";
+    }
+    return mediaUrl;
   }
 }

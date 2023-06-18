@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nytimes_news_project/core/constants/string/string_constants.dart';
 
 class MainAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   const MainAppbarWidget({super.key, required this.title});
@@ -16,17 +17,21 @@ class MainAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.search),
           onPressed: () {},
         ),
-        PopupMenuButton(
-          icon: const Icon(Icons.more_vert),
-          itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-            const PopupMenuItem(
-              child: Text('Seçenek 1'),
-            ),
-            const PopupMenuItem(
-              child: Text('Seçenek 2'),
-            ),
-          ],
-        )
+        _buildPopupMenu()
+      ],
+    );
+  }
+
+  PopupMenuButton<dynamic> _buildPopupMenu() {
+    return PopupMenuButton(
+      icon: const Icon(Icons.more_vert),
+      itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+        const PopupMenuItem(
+          child: Text(StringConstants.OPTIONS1),
+        ),
+        const PopupMenuItem(
+          child: Text(StringConstants.OPTIONS2),
+        ),
       ],
     );
   }

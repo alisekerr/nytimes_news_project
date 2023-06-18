@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nytimes_news_project/core/constants/color/color_constants.dart';
 
 import 'app_theme.dart';
 
@@ -18,12 +19,14 @@ class AppThemeLight extends AppTheme {
       scaffoldBackgroundColor: _buildBackgroundColor(),
       textTheme: _buildTextTheme,
       listTileTheme: _buildListTileTheme,
+      progressIndicatorTheme: _buidProgressIndicatorThemeData,
+      elevatedButtonTheme: _buildElevatedButtonTheme,
       iconTheme: _buildIconTheme);
 
-  ColorScheme get _buildColorScheme => ColorScheme(
+  ColorScheme get _buildColorScheme => const ColorScheme(
         brightness: Brightness.light,
-        primary: Colors.blue.shade900,
-        onPrimary: Colors.blue,
+        primary: Colors.white,
+        onPrimary: Colors.white,
         secondary: Colors.black,
         onSecondary: Colors.black45,
         error: Colors.red,
@@ -38,18 +41,31 @@ class AppThemeLight extends AppTheme {
   }
 }
 
+ProgressIndicatorThemeData get _buidProgressIndicatorThemeData =>
+    ProgressIndicatorThemeData(color: ColorConstants.lightGreenColor);
+
+ElevatedButtonThemeData get _buildElevatedButtonTheme =>
+    ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+          textStyle: TextStyle(color: Colors.white),
+          alignment: Alignment.center,
+          backgroundColor: ColorConstants.lightGreenColor),
+    );
 ListTileThemeData get _buildListTileTheme => ListTileThemeData(
     subtitleTextStyle: _buildTextTheme.titleSmall,
     visualDensity: VisualDensity.compact,
     titleTextStyle: _buildTextTheme.titleMedium);
 
-TextTheme get _buildTextTheme => const TextTheme(
-    titleLarge: TextStyle(color: Colors.white, fontSize: 18),
-    titleMedium: TextStyle(color: Color(0xff2A2A2A), fontSize: 13),
-    titleSmall: TextStyle(color: Color(0xff818181), fontSize: 12));
+TextTheme get _buildTextTheme => TextTheme(
+    bodySmall: TextStyle(color: ColorConstants.darkGrayColor, fontSize: 15),
+    bodyMedium: TextStyle(color: ColorConstants.blackColor, fontSize: 18),
+    titleLarge: TextStyle(color: ColorConstants.whiteColor, fontSize: 18),
+    titleMedium:
+        TextStyle(color: ColorConstants.semiMediumBlackColor, fontSize: 13),
+    titleSmall: TextStyle(color: ColorConstants.mediumGrayColor, fontSize: 12));
 
 AppBarTheme get _buildAppbarTheme => AppBarTheme(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: ColorConstants.lightGreenColor,
       centerTitle: false,
       iconTheme: _buildIconTheme,
       actionsIconTheme: _buildIconTheme,

@@ -9,6 +9,9 @@ class AppInterceptors extends Interceptor {
         debugPrint(err.response!.data["message"]);
       }
     }
+    if (err.response!.statusCode == 429) {
+      if (err.response!.data["message"] != null) {}
+    }
 
     return err;
   }
