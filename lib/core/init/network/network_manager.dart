@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
-
-import '../../constants/enums/locale_keys_enum.dart';
 import '../interceptors/app_interceptors.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-const String serviceUrl = "http://194.31.79.54:5050/api/v1";
+const String serviceUrl = "https://api.nytimes.com/svc";
 
 class NetworkManager {
   late Dio _dio;

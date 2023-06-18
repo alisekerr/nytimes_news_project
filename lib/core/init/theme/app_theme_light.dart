@@ -13,8 +13,12 @@ class AppThemeLight extends AppTheme {
 
   @override
   ThemeData get theme => ThemeData.light().copyWith(
-        colorScheme: _buildColorScheme,
-      );
+      colorScheme: _buildColorScheme,
+      appBarTheme: _buildAppbarTheme,
+      scaffoldBackgroundColor: _buildBackgroundColor(),
+      textTheme: _buildTextTheme,
+      listTileTheme: _buildListTileTheme,
+      iconTheme: _buildIconTheme);
 
   ColorScheme get _buildColorScheme => ColorScheme(
         brightness: Brightness.light,
@@ -29,4 +33,27 @@ class AppThemeLight extends AppTheme {
         surface: Colors.yellow,
         onSurface: Colors.pink,
       );
+  Color _buildBackgroundColor() {
+    return const Color(0xFAFAFAFA);
+  }
 }
+
+ListTileThemeData get _buildListTileTheme => ListTileThemeData(
+    subtitleTextStyle: _buildTextTheme.titleSmall,
+    visualDensity: VisualDensity.compact,
+    titleTextStyle: _buildTextTheme.titleMedium);
+
+TextTheme get _buildTextTheme => const TextTheme(
+    titleLarge: TextStyle(color: Colors.white, fontSize: 18),
+    titleMedium: TextStyle(color: Color(0xff2A2A2A), fontSize: 13),
+    titleSmall: TextStyle(color: Color(0xff818181), fontSize: 12));
+
+AppBarTheme get _buildAppbarTheme => AppBarTheme(
+      backgroundColor: Colors.greenAccent,
+      centerTitle: false,
+      iconTheme: _buildIconTheme,
+      actionsIconTheme: _buildIconTheme,
+    );
+IconThemeData get _buildIconTheme => const IconThemeData(
+      color: Colors.white,
+    );

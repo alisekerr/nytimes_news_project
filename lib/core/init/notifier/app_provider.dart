@@ -1,3 +1,4 @@
+import 'package:nytimes_news_project/view/news/viewModel/news_list_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -17,6 +18,9 @@ class ApplicationProvider {
   List<SingleChildWidget> dependItems = [
     ChangeNotifierProvider(
       create: (context) => ThemeNotifier(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => NewsListViewModel(),
     ),
     Provider.value(value: NavigationService.instance)
   ];

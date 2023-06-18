@@ -4,7 +4,7 @@ class ImageConstants {
 
   static ImageConstants get instance => _instace ??= ImageConstants._init();
 
-  String get logo => toPng("furkan");
+  String get newsPic => toPng("no_image");
 
-  String toPng(String name) => "assets/image/$name.png";
+  String toPng(String name) => "assets/images/$name.png";
 }
