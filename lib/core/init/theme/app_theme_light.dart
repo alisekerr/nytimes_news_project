@@ -47,7 +47,6 @@ ProgressIndicatorThemeData get _buidProgressIndicatorThemeData =>
 ElevatedButtonThemeData get _buildElevatedButtonTheme =>
     ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          textStyle: TextStyle(color: Colors.white),
           alignment: Alignment.center,
           backgroundColor: ColorConstants.lightGreenColor),
     );

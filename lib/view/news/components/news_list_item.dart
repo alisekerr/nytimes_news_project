@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nytimes_news_project/core/base/view/base_view.dart';
 import 'package:nytimes_news_project/core/constants/color/color_constants.dart';
-import 'package:nytimes_news_project/core/constants/image/image_constants.dart';
 import 'package:nytimes_news_project/view/news/model/news_model.dart';
 import 'package:nytimes_news_project/view/news/viewModel/news_list_view_model.dart';
 import '../../../core/constants/navigation/navigation_constants.dart';
