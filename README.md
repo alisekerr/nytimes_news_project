@@ -35,8 +35,6 @@
   - network => used for managing web scraping operations from websites using Dio
   
   - notifier =>  manages theme changes between dark and light themes with theme notifier.
-  
-  - mixin =>  mixins are structures where you can add extra features to your classes, keep functions and values in them, and can be combined with more than one mixin.
     
   - abstract =>  only notification of the method can be found within the class. Methods defined like this are called abstract methods and the abstract keyword is used to indicate that a method is abstract. If at least one of the methods within a class is abstract method, the class must also be defined abstract.
   
