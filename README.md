@@ -76,7 +76,9 @@
       ![SCR-20230619-2ye](https://github.com/alisekerr/nytimes_news_project/assets/77177463/2f140644-a077-44e9-b189-400e0010e6fd)
       ![SCR-20230619-2yv](https://github.com/alisekerr/nytimes_news_project/assets/77177463/f11f9f4e-660d-4e62-8bda-3490f82d480a)
 
-  #Project
+  # Project
+
+    - In Project :
 
       ![SCR-20230619-cay](https://github.com/alisekerr/nytimes_news_project/assets/77177463/ce129574-d1a5-463a-9216-77bd35457a51)
   
