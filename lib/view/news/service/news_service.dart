@@ -3,7 +3,7 @@ import 'package:nytimes_news_project/view/news/model/news_model.dart';
 
 class NewsService {
   final NetworkManager _client = NetworkManager();
-  final userKey = "ljsiTzXxKm6sSauCHjOt37q8860ddpyL";
+  final userKey = "z1VyPHhnnCr0u8YAokW6GszI0JRuHfqG";
   Future<NewsModel> getNewsData() async {
     final response = await _client.getWithHeaders(
       path: "/mostpopular/v2/viewed/7.json?api-key=$userKey",
