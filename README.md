@@ -78,7 +78,9 @@
 
   #Project
 
-      ![SCR-20230619-cay](https://github.com/alisekerr/nytimes_news_project/assets/77177463/985e6e76-3871-4a6f-b0b1-c2bb497b95ea)
-      ![SCR-20230619-cbd](https://github.com/alisekerr/nytimes_news_project/assets/77177463/004352a4-d961-4f71-bbff-cffa8ac0f820)
+      ![SCR-20230619-cay](https://github.com/alisekerr/nytimes_news_project/assets/77177463/ce129574-d1a5-463a-9216-77bd35457a51)
+  
+      ![SCR-20230619-cbd](https://github.com/alisekerr/nytimes_news_project/assets/77177463/84ed58c7-0cef-4019-860e-01e7c64effb7)
+
 
 
