@@ -26,46 +26,63 @@ class NewsListItem extends StatelessWidget {
               .navigateToPage(path: NavigationConstants.DETAIL, data: result);
         },
         child: ListTile(
-          leading: CircleAvatar(
-              backgroundColor: ColorConstants.transparentColor,
-              child: ImageNetworkWidget(
-                imageUrl: value.imageParse(imageData: result?.media, index: 0),
-              )),
-          title: Text(
-            result?.title ?? StringConstants.DATA_NOT_FOUND,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          leading: _buildImage(value),
+          title: _buildTitle(context),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                result?.byline ?? StringConstants.DATA_NOT_FOUND,
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    result?.section ?? StringConstants.DATA_NOT_FOUND,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  Row(
-                    children: [
-                      const Icon(Icons.date_range),
-                      Text(
-                        DateFormat('yyyy-MM-dd').format(result!.publishedDate!),
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              _buildShortArticle(context),
+              _buildDateAndSection(context),
             ],
           ),
           trailing: const Icon(Icons.arrow_forward_ios),
           isThreeLine: true,
         ),
       ),
+    );
+  }
+
+  CircleAvatar _buildImage(NewsListViewModel value) {
+    return CircleAvatar(
+        backgroundColor: ColorConstants.transparentColor,
+        child: ImageNetworkWidget(
+          imageUrl: value.imageParse(imageData: result?.media, index: 0),
+        ));
+  }
+
+  Text _buildTitle(BuildContext context) {
+    return Text(
+      result?.title ?? StringConstants.DATA_NOT_FOUND,
+      style: Theme.of(context).textTheme.titleMedium,
+    );
+  }
+
+  Text _buildShortArticle(BuildContext context) {
+    return Text(
+      result?.resultAbstract ?? StringConstants.DATA_NOT_FOUND,
+      style: Theme.of(context).textTheme.titleSmall,
+      maxLines: 2,
+    );
+  }
+
+  Row _buildDateAndSection(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          result?.section ?? StringConstants.DATA_NOT_FOUND,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        Row(
+          children: [
+            const Icon(Icons.date_range),
+            Text(
+              DateFormat('yyyy-MM-dd').format(result!.publishedDate!),
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
