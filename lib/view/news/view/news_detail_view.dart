@@ -46,6 +46,7 @@ class NewsDetailView extends StatelessWidget {
     return GeneralButton(
         onPress: () => NavigationService.instance
             .navigateToPageClear(path: NavigationConstants.LIST),
+        text: StringConstants.BACK,
         height: context.dynamicHeight(0.05),
         width: context.dynamicWidth(0.8));
   }
